@@ -1,4 +1,4 @@
-class Forward():
+class Forward:
 
     def algo(self):
 
@@ -11,8 +11,8 @@ class Forward():
         A = [[1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0], [1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0],
              [1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0]]  # NxN list
 
-        alphaold = []  # length N
-        alphanew = []  # length N
+        alphaold = [0, 0, 0]  # length N
+        alphanew = [0, 0, 0]  # length N
 
         # initialization
         temp = obser[0]
@@ -28,5 +28,30 @@ class Forward():
         t = 0
         j = 0
         i2 = 0
+        k = 0
+        print("Before the loooooooooooooooooooooooopssssssss")
+        while t <= T - 2:
+            temp = obser[t + 1]
+            while j < N:
+                sum = 0.0
+                while i2 < N:
+                    sum += alphaold[i2]*A[i2][j]
+                    i2 += 1
+                alphanew[j] = sum * b[j][temp]
+                j += 1
+            while k < N:
+                alphaold[k] = alphanew[k]
+                k += 1
+            t += 1
+        print("I've fINISHED the looooooooop!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        # probability
+        P = 0.0
+        i3 = 0
+        while i3 < N:
+            P += alphanew[i3]
+            i3 += 1
+        print("P = " + str(P))
 
-        while
+testforward = Forward()
+
+testforward.algo()
