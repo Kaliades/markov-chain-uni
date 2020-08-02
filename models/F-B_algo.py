@@ -52,6 +52,6 @@ class Forward:
             i3 += 1
         print("P = " + str(P))
 
-testforward = Forward()
+#testforward = Forward()
 
-testforward.algo()
+#testforward.algo()
